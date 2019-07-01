@@ -8,7 +8,7 @@
         public string Prog { get; set; }
 
         /*
-        * Rappresenta il tipo dell'oggetto 
+        * Rappresenta il tipo dell'oggetto
         */
         //public Tipo Tipo { get; set; }
 
@@ -36,8 +36,9 @@
          * Rappresenta la categoria (impiego) associata al prodotto
          */
         public string Impiego { get; set; }
+
         /// <summary>
-        /// La categora del prodotto
+        ///   La categora del prodotto
         /// </summary>
         public string MacroGruppo { get; set; }
 

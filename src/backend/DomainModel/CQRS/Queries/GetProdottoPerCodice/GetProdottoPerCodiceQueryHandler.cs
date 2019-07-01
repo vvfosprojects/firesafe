@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CQRS.Queries;
+﻿using CQRS.Queries;
 using DomainModel.Services;
+using System;
 
 namespace DomainModel.CQRS.Queries.GetProdottoPerCodice
 {
@@ -15,7 +13,7 @@ namespace DomainModel.CQRS.Queries.GetProdottoPerCodice
             this.getProdottoByCodice = getProdottoByCodice ?? throw new ArgumentNullException(nameof(getProdottoByCodice));
         }
 
-        public GetProdottoPerCodiceQueryResult Handle (GetProdottoPerCodiceQuery query)
+        public GetProdottoPerCodiceQueryResult Handle(GetProdottoPerCodiceQuery query)
         {
             return new GetProdottoPerCodiceQueryResult()
             {

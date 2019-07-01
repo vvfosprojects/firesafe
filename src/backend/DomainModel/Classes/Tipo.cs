@@ -1,7 +1,6 @@
-﻿
-namespace DomainModel.Classes
+﻿namespace DomainModel.Classes
 {
-    class Tipo
+    internal class Tipo
     {
         /*
          * Questo oggetto rappresenta il Tipo associato ad ogni prodotto. I valori possibili per nome sono:
@@ -9,6 +8,5 @@ namespace DomainModel.Classes
          */
         public int Id { get; }
         public string Nome { get; set; }
-
     }
 }

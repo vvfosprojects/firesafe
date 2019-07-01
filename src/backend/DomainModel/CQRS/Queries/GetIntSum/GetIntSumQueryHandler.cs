@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CQRS.Queries;
+﻿using CQRS.Queries;
 
 namespace DomainModel.CQRS.Queries.GetIntSum
 {

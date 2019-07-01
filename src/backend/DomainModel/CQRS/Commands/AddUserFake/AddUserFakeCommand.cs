@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DomainModel.CQRS.Commands.AddUserFake
+﻿namespace DomainModel.CQRS.Commands.AddUserFake
 {
     public class AddUserFakeCommand
     {

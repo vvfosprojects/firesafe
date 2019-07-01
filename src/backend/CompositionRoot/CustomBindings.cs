@@ -1,10 +1,9 @@
-﻿using System;
-using SimpleInjector;
+﻿using SimpleInjector;
 
 namespace CompositionRoot
 {
     /// <summary>
-    /// This class contains all the custom application bindings.
+    ///   This class contains all the custom application bindings.
     /// </summary>
     internal static class CustomBindings
     {

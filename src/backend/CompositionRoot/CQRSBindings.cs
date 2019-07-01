@@ -1,11 +1,10 @@
-﻿using System;
+﻿using SimpleInjector;
 using System.Reflection;
-using SimpleInjector;
 
 namespace CompositionRoot
 {
     /// <summary>
-    /// This class contains all the bindings related to CQRS infrastructure.
+    ///   This class contains all the bindings related to CQRS infrastructure.
     /// </summary>
     internal static class CQRSBindings
     {
@@ -16,8 +15,8 @@ namespace CompositionRoot
                 typeof(DomainModel.CQRS.Queries.GetIntSum.GetIntSumQuery).Assembly
             };
 
-            // The following two lines perform the batch registration by using
-            // the great generics support provided by SimpleInjector.
+            // The following two lines perform the batch registration by using the great generics
+            // support provided by SimpleInjector.
             container.Register(typeof(CQRS.Commands.ICommandHandler<>), assemblies);
             container.Register(typeof(CQRS.Queries.IQueryHandler<,>), assemblies);
 

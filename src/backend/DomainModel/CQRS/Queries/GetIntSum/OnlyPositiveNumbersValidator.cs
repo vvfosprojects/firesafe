@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CQRS.Queries;
-using CQRS.Queries.Validators;
+﻿using CQRS.Queries.Validators;
 using CQRS.Validation;
+using System.Collections.Generic;
 
 namespace DomainModel.CQRS.Queries.GetIntSum
 {

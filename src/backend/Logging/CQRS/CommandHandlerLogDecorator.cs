@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using CQRS.Commands;
+﻿using CQRS.Commands;
 using Newtonsoft.Json;
 using Serilog;
+using System;
+using System.Diagnostics;
 
 namespace Logging.CQRS
 {

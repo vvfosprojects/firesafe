@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CQRS.Authorization;
+﻿using CQRS.Authorization;
 using CQRS.Queries.Authorizers;
+using System.Collections.Generic;
 
 namespace DomainModel.CQRS.Queries.GetIntSum
 {

@@ -1,16 +1,13 @@
 ﻿using DomainModel.Classes;
 using DomainModel.Services;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 [assembly: InternalsVisibleTo("CompositionRoot")]
 
 namespace Persistence.InMemory
 {
-    class GetProdottoByCodice : IGetProdottoByCodice
+    internal class GetProdottoByCodice : IGetProdottoByCodice
     {
         private readonly Database database;
 

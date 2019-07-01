@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DomainModel.CQRS.Commands.AddUserFake;
+﻿using DomainModel.CQRS.Commands.AddUserFake;
 using NUnit.Framework;
 
 namespace DomainModel.Test

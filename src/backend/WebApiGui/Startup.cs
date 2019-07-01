@@ -1,19 +1,15 @@
 ﻿// You'll need to include the following namespaces
+using Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Http;
-
 using SimpleInjector;
-using SimpleInjector.Lifestyles;
 using SimpleInjector.Integration.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Logging;
+using SimpleInjector.Lifestyles;
 
 namespace RockApi
 {
@@ -61,7 +57,7 @@ namespace RockApi
             // Add custom middleware
             //app.UseMiddleware<CustomMiddleware1>(container);
             //app.UseMiddleware<CustomMiddleware2>(container);
-            #warning Here you can add custom middleware
+#warning Here you can add custom middleware
 
             container.Verify();
 

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CQRS.Commands.Validators;
+﻿using CQRS.Commands.Validators;
 using CQRS.Validation;
+using System.Collections.Generic;
 
 namespace DomainModel.CQRS.Commands.CreateFileWithContent
 {

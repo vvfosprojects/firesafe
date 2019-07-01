@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CQRS.Commands;
+using System;
 using System.IO;
-using System.Text;
-using CQRS.Commands;
 
 namespace DomainModel.CQRS.Commands.CreateFileWithContent
 {

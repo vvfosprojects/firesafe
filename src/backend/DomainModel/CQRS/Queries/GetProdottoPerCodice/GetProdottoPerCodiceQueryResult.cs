@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DomainModel.Classes;
+﻿using DomainModel.Classes;
 
 namespace DomainModel.CQRS.Queries.GetProdottoPerCodice
 {
