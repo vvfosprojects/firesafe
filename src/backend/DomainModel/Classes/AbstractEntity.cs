@@ -2,13 +2,8 @@
 
 namespace DomainModel.Classes
 {
-    public class AbstractEntity
+    public interface AbstractEntity
     {
-        public AbstractEntity()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
-
-        public string Id { get; protected set; }
+        string Id { get; }
     }
 }

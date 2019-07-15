@@ -8,7 +8,6 @@
          *  A2s1d0; Bfl-s1; Bs1d0; Bs2d0; Cfl-s1; Cs2d0; Cs3d0]
          */
 
-        public int Id { get; }
         public string Nome { get; set; }
     }
 }

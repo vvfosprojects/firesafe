@@ -6,6 +6,9 @@ using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using System;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("CompositionRoot")]
 
 namespace Persistence.MongoDB
 {
@@ -74,7 +77,7 @@ namespace Persistence.MongoDB
             });
         }
 
-        public IMongoCollection<Prodotto> ProdottoCollection
+        public IMongoCollection<Prodotto> ProdottiCollection
         {
             get
             {

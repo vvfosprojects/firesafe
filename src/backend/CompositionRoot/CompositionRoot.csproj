@@ -13,6 +13,7 @@
     <ProjectReference Include="..\DomainModel\DomainModel.csproj" />
     <ProjectReference Include="..\Logging\Logging.csproj" />
     <ProjectReference Include="..\Persistence.InMemory\Persistence.InMemory.csproj" />
+    <ProjectReference Include="..\Persistence.MongoDB\Persistence.MongoDB.csproj" />
   </ItemGroup>
 
 </Project>

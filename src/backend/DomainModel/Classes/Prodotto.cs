@@ -4,6 +4,8 @@ namespace DomainModel.Classes
 {
     public class Prodotto : AbstractEntity
     {
+        public string Id { get; protected set; }
+
         /*
          * Rappresenta l'id nel DB di DCPST
          */
