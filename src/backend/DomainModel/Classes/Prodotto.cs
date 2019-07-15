@@ -48,13 +48,21 @@ namespace DomainModel.Classes
         public int ScoreBySearchKey(string key)
         {
             string toLower = key.ToLower();
+            int score = 0;
+
             //se la Key è uguale alla DenominazioneCommerciale allora lo score ha peso +3
             if (toLower == DenominazioneCommerciale.ToLower())
             {
-                return 3;
+                score += 2;
             }
+
+            if (DenominazioneCommerciale.ToLower().Contains(toLower))
+            {
+                score += 1;
+            }
+
             //se la Key è uguale ad Impiego o Macrogruppo allora lo score ha peso +2
-            else if (toLower == Impiego.ToLower() || toLower == MacroGruppo.ToLower())
+            if (toLower == Impiego.ToLower() || toLower == MacroGruppo.ToLower())
             {
                 return 2;
             }
@@ -73,9 +81,9 @@ namespace DomainModel.Classes
         /// </summary>
         public string MacroGruppo { get; set; }
 
-        /*
-         * Rappresenta la data in cui ???
-         */
+        /// <summary>
+        ///   Rappresenta la data in cui ???
+        /// </summary>
         public DateTime Firma { get; set; }
 
         /*

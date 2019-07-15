@@ -10,10 +10,10 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
     {
         /// <summary>
         ///   Il metodo Validate verifica 3 condizioni: che la proprietà query.Key non sia più lunga
-        ///   di 100 caratteri; che la proprietà query.PageSize non sia maggiore di 20, se superiore
-        ///   la imposta a 20; che la proprietà query.Categorie[i] non sia più lunga di 100 caratteri;
+        ///   di 100 caratteri; che la proprietà query.PageSize non sia maggiore di 20 (se superiore
+        ///   viene imposta a 20); che la proprietà query.Categorie[i] non sia più lunga di 100 caratteri;
         /// </summary>
-        /// <param name="query"></param>
+        /// <param name="query">DTO di input</param>
         /// <returns></returns>
         public IEnumerable<ValidationResult> Validate(GetProdottiByTestoLiberoQuery query)
         {

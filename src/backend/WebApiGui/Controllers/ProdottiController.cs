@@ -15,15 +15,15 @@ namespace Firesafe.Controllers
             this.handler = handler;
         }
 
-        [HttpGet("{key}&{page}&{pageSize}&{categorie}")]
-        public ActionResult<GetProdottiByTestoLiberoQueryResult> Get(string key, int page, int pageSize, string[] categorie)
+        [HttpGet]
+        public ActionResult<GetProdottiByTestoLiberoQueryResult> Get([FromQuery] CriteriRicerca criteri)
         {
             var query = new GetProdottiByTestoLiberoQuery()
             {
-                Categorie = categorie,
-                Page = page,
-                PageSize = pageSize,
-                Key = key
+                Categorie = criteri.Categorie ?? new string[0],
+                Page = criteri.Page,
+                PageSize = criteri.PageSize,
+                Key = criteri.Key
             };
 
             return Ok(this.handler.Handle(query));
