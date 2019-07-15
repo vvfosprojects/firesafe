@@ -1,6 +1,6 @@
 ﻿namespace DomainModel.Classes
 {
-    internal class Classe
+    public class Classe
     {
         /*
          * Questo oggetto rappresenta la Classe associata ad ogni prodotto. I valori possibili per nome sono:

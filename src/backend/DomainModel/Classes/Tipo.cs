@@ -1,6 +1,6 @@
 ﻿namespace DomainModel.Classes
 {
-    internal class Tipo
+    public class Tipo
     {
         /*
          * Questo oggetto rappresenta il Tipo associato ad ogni prodotto. I valori possibili per nome sono:
