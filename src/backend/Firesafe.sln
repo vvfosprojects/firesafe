@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS", "CQRS\CQRS.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logging", "Logging\Logging.csproj", "{04BCF465-4B53-4C1E-8AE9-187103CBAD4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence.InMemory", "Persistence.InMemory\Persistence.InMemory.csproj", "{5EE0358A-A9CD-4DA8-A767-EFAA4ABCA42C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence.InMemory", "Persistence.InMemory\Persistence.InMemory.csproj", "{5EE0358A-A9CD-4DA8-A767-EFAA4ABCA42C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence.MongoDB", "Persistence.MongoDB\Persistence.MongoDB.csproj", "{54441F6B-C186-4A3C-AA38-85D2048F7BF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{5EE0358A-A9CD-4DA8-A767-EFAA4ABCA42C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EE0358A-A9CD-4DA8-A767-EFAA4ABCA42C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EE0358A-A9CD-4DA8-A767-EFAA4ABCA42C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54441F6B-C186-4A3C-AA38-85D2048F7BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54441F6B-C186-4A3C-AA38-85D2048F7BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54441F6B-C186-4A3C-AA38-85D2048F7BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54441F6B-C186-4A3C-AA38-85D2048F7BF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
