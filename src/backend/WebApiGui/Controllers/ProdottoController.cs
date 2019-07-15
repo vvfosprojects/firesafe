@@ -17,9 +17,9 @@ namespace RockApi.Controllers
 
         //GET: api/Prodotti/5
         [HttpGet("{id}", Name = "Get")]
-        public ActionResult<GetProdottoPerCodiceQueryResult> Get(int id)
+        public ActionResult<GetProdottoPerCodiceQueryResult> Get(string id)
         {
-            var query = new GetProdottoPerCodiceQuery() { Codice = id.ToString() };
+            var query = new GetProdottoPerCodiceQuery() { Codice = id };
 
             return Ok(this.handler.Handle(query));
         }

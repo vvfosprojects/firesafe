@@ -1,5 +1,6 @@
 ﻿using DomainModel.Classes;
 using DomainModel.Services;
+using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
@@ -18,7 +19,7 @@ namespace Persistence.InMemory
 
         public Prodotto Get(string codice)
         {
-            return this.database.Prodotti.Single(p => p.Prog == codice);
+            return this.database.Prodotti.FirstOrDefault(p => p.Prog == codice);
         }
     }
 }
