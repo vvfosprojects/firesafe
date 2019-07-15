@@ -9,6 +9,7 @@ using System;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("CompositionRoot")]
+[assembly: InternalsVisibleTo("Persistence.MongoDB.DbInitializer")]
 
 namespace Persistence.MongoDB
 {
