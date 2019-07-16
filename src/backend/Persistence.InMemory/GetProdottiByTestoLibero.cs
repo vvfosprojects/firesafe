@@ -1,6 +1,7 @@
 ﻿using DomainModel.Classes;
 using DomainModel.CQRS.Queries.GetProdottiByTestoLibero;
 using DomainModel.Services;
+using System.Collections.Generic;
 using System.Linq;
 
 //anche se commentata la CompositionRoot riesce ad entrare nella classe... perchè? forse perchè già presente in GetProdottoByCodice?
@@ -24,7 +25,7 @@ namespace Persistence.InMemory
             var prodottiConPunteggio = prodotti.Select(p => new
             {
                 p = p,
-                score = p.ScoreBySearchKey(query.Key)
+                score = p.ScoreByMultipleSearchKey(query.Key)
             });
 
             var prodottiCheMatchanoOrdinati = prodottiConPunteggio

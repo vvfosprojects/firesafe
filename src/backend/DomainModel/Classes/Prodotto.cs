@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DomainModel.Classes
 {
@@ -78,6 +79,41 @@ namespace DomainModel.Classes
                 score += 1;
             }
             //altrimenti non è stato riscontrato alcun match quindi ho peso 0
+            return score;
+        }
+
+        public int ScoreByMultipleSearchKey(string key)
+        {
+            string[] keys = key.Split(' ');
+            int score = 0;
+
+            foreach (string k in keys)
+            {
+                string toLower = k.ToLower();
+
+                //se la Key è uguale alla DenominazioneCommerciale allora lo score ha peso +2
+                if (toLower == DenominazioneCommerciale.ToLower())
+                {
+                    score += 2;
+                }
+                //se la Key è contenuta nella DenominazioneCommerciale allora lo score ha peso +1
+                if (DenominazioneCommerciale.ToLower().Contains(toLower))
+                {
+                    score += 1;
+                }
+
+                //se la Key è uguale ad Impiego o Macrogruppo allora lo score ha peso +2
+                if (toLower == Impiego.ToLower() || toLower == MacroGruppo.ToLower())
+                {
+                    score += 2;
+                }
+                //se la Key è parzialmente contenuta in uno dei campi Impiego o MacroGruppo allora lo score ha peso 1
+                if (Impiego.ToLower().Contains(toLower) || MacroGruppo.ToLower().Contains(toLower))
+                {
+                    score += 1;
+                }
+            }
+
             return score;
         }
 
