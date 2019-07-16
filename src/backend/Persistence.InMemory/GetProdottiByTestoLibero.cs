@@ -31,6 +31,15 @@ namespace Persistence.InMemory
                 .Where(p => p.score > 0)
                 .OrderByDescending(p => p.score);
 
+            /*
+             * La dimensione massima dell'array di Prodotti in risposta deve essere
+             * minore o uguale a 20.
+            */
+            if (query.PageSize > 20)
+            {
+                query.PageSize = 20;
+            }
+
             var paginaProdotti = prodottiCheMatchanoOrdinati
                 .Skip((query.Page - 1) * query.PageSize)
                 .Take(query.PageSize);

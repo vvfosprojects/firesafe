@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("CompositionRoot")]
+//[assembly: InternalsVisibleTo("CompositionRoot")]
 
 namespace Persistence.InMemory
 {

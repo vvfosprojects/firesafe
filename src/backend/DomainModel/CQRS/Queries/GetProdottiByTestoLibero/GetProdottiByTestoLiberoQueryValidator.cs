@@ -22,15 +22,6 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
                 yield return new ValidationResult("Errore, chiave in input troppo lunga");
             }
 
-            /*
-             * La dimensione massima dell'array di Prodotti in risposta deve essere
-             * minore o uguale a 20.
-             */
-            if (query.PageSize > 20)
-            {
-                query.PageSize = 20;
-            }
-
             foreach (string categoria in query.Categorie)
             {
                 if (categoria.Length > 100)

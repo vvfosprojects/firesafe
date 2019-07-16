@@ -4,47 +4,51 @@ namespace DomainModel.Classes
 {
     public class Prodotto : AbstractEntity
     {
+        /// <summary>
+        ///   Rappresenta l'id in MongoDB
+        /// </summary>
         public string Id { get; protected set; }
 
-        /*
-         * Rappresenta l'id nel DB di DCPST
-         */
+        /// <summary>
+        ///   Rappresenta l'id nel DB di DCPST
+        /// </summary>
         public string Prog { get; set; }
 
-        /*
-        * Rappresenta il tipo dell'oggetto
-        */
+        /// <summary>
+        ///   Rappresenta il tipo dell'oggetto
+        /// </summary>
         public Tipo Tipo { get; set; }
 
-        /*
-         * Rappresenta il nome della ditta proprietaria del prodotto
-         */
+        /// <summary>
+        ///   Rappresenta il nome della ditta proprietaria del prodotto
+        /// </summary>
         public string Ditta { get; set; }
 
-        /*
-         * Rappresenta il nome commerciale del prodotto
-         */
+        /// <summary>
+        ///   Rappresenta il nome commerciale del prodotto
+        /// </summary>
         public string DenominazioneCommerciale { get; set; }
 
-        /*
-         * Rappresenta la classe di appartenza del prodotto
-         */
+        /// <summary>
+        ///   Rappresenta la classe di appartenza del prodotto
+        /// </summary>
         public Classe Classe { get; set; }
 
-        /*
-         * Rappresenta il codice di omologazione del prodotto
-         */
+        /// <summary>
+        ///   Rappresenta il codice di omologazione del prodotto
+        /// </summary>
         public string CodiceOmol { get; set; }
 
-        /*
-         * Rappresenta la categoria (impiego) associata al prodotto
-         */
+        /// <summary>
+        ///   Rappresenta la categoria (impiego) associata al prodotto
+        /// </summary>
         public string Impiego { get; set; }
 
         /// <summary>
-        ///Il metodo ricerca la chiave passata prima per corrispondenza esatta nei campi DenominazioneCommerciale, Impiego e Macrogruppo;
-        /// se viene trovata la corrispondenza viene ritornato un intero che vuole indicare quanto efficace sia stata la ricerca
-        /// Nel caso in cui non venisse trovata alcuna corrispondenza esatta, viene effettuata una ricerca per corrispondenza parziale
+        ///   Il metodo ricerca la chiave passata in input, nei campi DenominazioneCommerciale,
+        ///   Impiego e Macrogruppo; il metodo assegna un punteggio di +2 se la chiave in input ha
+        ///   una corrispondenza ESATTA, +1 se vi è una corrispondenza PARZIALE per i campi
+        ///   DenominazioneCommerciale, Impiego e Macrocategoria.
         /// </summary>
 
         public int ScoreBySearchKey(string key)
@@ -52,12 +56,12 @@ namespace DomainModel.Classes
             string toLower = key.ToLower();
             int score = 0;
 
-            //se la Key è uguale alla DenominazioneCommerciale allora lo score ha peso +3
+            //se la Key è uguale alla DenominazioneCommerciale allora lo score ha peso +2
             if (toLower == DenominazioneCommerciale.ToLower())
             {
                 score += 2;
             }
-
+            //se la Key è contenuta nella DenominazioneCommerciale allora lo score ha peso +1
             if (DenominazioneCommerciale.ToLower().Contains(toLower))
             {
                 score += 1;
@@ -66,15 +70,15 @@ namespace DomainModel.Classes
             //se la Key è uguale ad Impiego o Macrogruppo allora lo score ha peso +2
             if (toLower == Impiego.ToLower() || toLower == MacroGruppo.ToLower())
             {
-                return 2;
+                score += 2;
             }
-            //se la Key è parzialmente contenuta in uno dei campi DenominazioneCommerciale, Impiego o MacroGruppo allora lo score ha peso 1
-            else if (DenominazioneCommerciale.ToLower().Contains(toLower) || Impiego.ToLower().Contains(toLower) || MacroGruppo.ToLower().Contains(toLower))
+            //se la Key è parzialmente contenuta in uno dei campi Impiego o MacroGruppo allora lo score ha peso 1
+            if (Impiego.ToLower().Contains(toLower) || MacroGruppo.ToLower().Contains(toLower))
             {
-                return 1;
+                score += 1;
             }
             //altrimenti non è stato riscontrato alcun match quindi ho peso 0
-            return 0;
+            return score;
         }
 
         /// <summary>
@@ -84,13 +88,13 @@ namespace DomainModel.Classes
         public string MacroGruppo { get; set; }
 
         /// <summary>
-        ///   Rappresenta la data in cui ???
+        ///   Rappresenta la data in cui è stata rilasciata l'omologazione del prodotto
         /// </summary>
         public DateTime Firma { get; set; }
 
-        /*
-         * Rappresenta la data di scadenza dell'omologazione associata al prodotto
-         */
+        /// <summary>
+        ///   Rappresenta la data di scadenza dell'omologazione associata al prodotto
+        /// </summary>
         public DateTime Scadenza { get; set; }
     }
 }
