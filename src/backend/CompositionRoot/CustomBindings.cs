@@ -10,8 +10,8 @@ namespace CompositionRoot
     {
         internal static void Bind(Container container)
         {
-            BindDB_InMemory(container);
-            //BindDB_MongoDb(container);
+            //BindDB_InMemory(container);
+            BindDB_MongoDb(container);
         }
 
         private static void BindDB_MongoDb(Container container)

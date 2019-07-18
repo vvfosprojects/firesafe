@@ -4,9 +4,6 @@ using DomainModel.Services;
 using System.Collections.Generic;
 using System.Linq;
 
-//anche se commentata la CompositionRoot riesce ad entrare nella classe... perchè? forse perchè già presente in GetProdottoByCodice?
-//[assembly: InternalsVisibleTo("CompositionRoot")]
-
 namespace Persistence.InMemory
 {
     internal class GetProdottiByTestoLibero : IGetProdottiByTestoLibero
