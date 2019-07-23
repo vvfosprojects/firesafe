@@ -8,9 +8,9 @@ namespace Persistence.InMemory
 {
     internal class GetProdottiByTestoLibero : IGetProdottiByTestoLibero
     {
-        private readonly Database database;
+        private readonly Database_hardcode database;
 
-        public GetProdottiByTestoLibero(Database database)
+        public GetProdottiByTestoLibero(Database_hardcode database)
         {
             this.database = database;
         }
