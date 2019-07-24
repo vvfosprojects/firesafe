@@ -14,6 +14,8 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
 
         public FacetAnnoFirmaConvenzione[] FacetAnnoFirmaConvenzione { get; set; }
 
+        public FacetAnnoScadenzaConvenzione[] FacetAnnoScadenzaConvenzione { get; set; }
+
         public Prodotto[] Prodotti { get; set; }
     }
 }

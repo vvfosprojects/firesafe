@@ -1,21 +1,11 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace DomainModel.Classes
 {
     public class Prodotto : AbstractEntity
     {
-        //private readonly Classe Classe;
-        //private readonly Tipo Tipo;
-
-        [JsonConstructor]
-        public Prodotto(string classe, string tipo)
-        {
-            this.Classe = new Classe() { Nome = classe };
-            this.Tipo = new Tipo() { Nome = tipo };
-            //this.Firma = DateTime.ParseExact(firma.Replace('/', '-'), "dd-MM-yyyy", null);
-        }
+        public Prodotto()
+        { }
 
         /// <summary>
         ///   Rappresenta l'id in MongoDB
@@ -140,13 +130,9 @@ namespace DomainModel.Classes
         /// </summary>
         public DateTime Firma { get; set; }
 
-        //public string Firma { get; set; }
-
         /// <summary>
         ///   Rappresenta la data di scadenza dell'omologazione associata al prodotto
         /// </summary>
         public DateTime Scadenza { get; set; }
-
-        //public string Scadenza { get; set; }
     }
 }

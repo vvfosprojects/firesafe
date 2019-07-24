@@ -61,6 +61,15 @@ namespace Persistence.InMemory
                 })
                 .OrderByDescending(z => z.Anno);
 
+            var prodottiPerAnnoScadenzaConvenzione = prodottiCheMatchanoOrdinati
+                .GroupBy(pc => pc.p.Scadenza.Year)
+                .Select(pf => new FacetAnnoScadenzaConvenzione()
+                {
+                    Anno = pf.Key,
+                    Count = pf.Count()
+                })
+                .OrderByDescending(z => z.Anno);
+
             //aggiunto cast int
             return new GetProdottiByTestoLiberoQueryResult()
             {
@@ -73,6 +82,7 @@ namespace Persistence.InMemory
                 },
                 FacetCategorie = prodottiPerCategoria.ToArray(),
                 FacetAnnoFirmaConvenzione = prodottiPerAnnoFirmaConvenzione.ToArray(),
+                FacetAnnoScadenzaConvenzione = prodottiPerAnnoScadenzaConvenzione.ToArray(),
                 Prodotti = paginaProdotti
                   .Select(pp => pp.p)
                   .ToArray(),
