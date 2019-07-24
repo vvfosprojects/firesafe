@@ -29,10 +29,9 @@ namespace Persistence.InMemory
                 new Prodotto() { Prog="42770", Tipo = new Tipo {Nome = "E"}, Ditta = "ditta1", Classe = new Classe { Nome = "1 IM"}, CodiceOmol = "codiceOmol", Firma = new DateTime(), Scadenza = new DateTime() , MacroGruppo="GUANCIALI", Impiego = "CUSCINO", DenominazioneCommerciale="SERIE CUSCINI E-AU ISO"},
                 new Prodotto() { Prog="37643", Tipo = new Tipo {Nome = "E"}, Ditta = "ditta1", Classe = new Classe { Nome = "1 IM"}, CodiceOmol = "codiceOmol", Firma = new DateTime(), Scadenza = new DateTime() , MacroGruppo="LETTI E DIVANI", Impiego = "DIVANO-LETTO", DenominazioneCommerciale="SERIE S"},
                 new Prodotto() { Prog="42670", Tipo = new Tipo {Nome = "E"}, Ditta = "ditta1", Classe = new Classe { Nome = "1 IM"}, CodiceOmol = "codiceOmol", Firma = new DateTime(), Scadenza = new DateTime() , MacroGruppo="LETTI E DIVANI", Impiego = "DIVANO-LETTO", DenominazioneCommerciale="SERIE SOFA' BED"}
-            };
             */
-            }
-
+            };
+        }
 
         public List<Prodotto> Prodotti
         {

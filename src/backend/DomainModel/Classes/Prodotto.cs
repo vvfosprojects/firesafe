@@ -138,14 +138,15 @@ namespace DomainModel.Classes
         /// <summary>
         ///   Rappresenta la data in cui è stata rilasciata l'omologazione del prodotto
         /// </summary>
-        //public DateTime Firma { get; set; }
+        public DateTime Firma { get; set; }
 
-        public string Firma { get; set; }
+        //public string Firma { get; set; }
 
         /// <summary>
         ///   Rappresenta la data di scadenza dell'omologazione associata al prodotto
         /// </summary>
-        //public DateTime Scadenza { get; set; }
-        public string Scadenza { get; set; }
+        public DateTime Scadenza { get; set; }
+
+        //public string Scadenza { get; set; }
     }
 }

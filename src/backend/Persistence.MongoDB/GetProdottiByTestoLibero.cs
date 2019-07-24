@@ -2,7 +2,6 @@
 using DomainModel.CQRS.Queries.GetProdottiByTestoLibero;
 using DomainModel.Services;
 using MongoDB.Bson;
-using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -26,12 +25,17 @@ namespace Persistence.MongoDB
 
             Dictionary<string, ProdottoConScore> final = new Dictionary<string, ProdottoConScore>();
             List<Prodotto> matchDenominazione = new List<Prodotto>();
+            List<Prodotto> matchDenominazione1 = new List<Prodotto>();
+
             List<Prodotto> matchImpiegoMacroGruppo = new List<Prodotto>();
             List<Prodotto> containsDenominazione = new List<Prodotto>();
             List<Prodotto> containsImpiegoMacroGruppo = new List<Prodotto>();
             List<ProdottoConScore> prodottoConScoreFinale = new List<ProdottoConScore>();
 
             var collection = dbContext.ProdottiCollection;
+            //collection.Indexes.CreateOne(Builders<Prodotto>.IndexKeys.Text(p => p.MacroGruppo));
+
+            //var coll = collection.Find(Builders<Prodotto>.Filter.Text("SEDIE")).ToList();
 
             foreach (string key in keys)
             {

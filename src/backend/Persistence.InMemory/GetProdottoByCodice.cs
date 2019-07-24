@@ -10,9 +10,9 @@ namespace Persistence.InMemory
 {
     internal class GetProdottoByCodice : IGetProdottoByCodice
     {
-        private readonly Database_hardcode database;
+        private readonly Database_hardcoded database;
 
-        public GetProdottoByCodice(Database_hardcode database)
+        public GetProdottoByCodice(Database_hardcoded database)
         {
             this.database = database;
         }

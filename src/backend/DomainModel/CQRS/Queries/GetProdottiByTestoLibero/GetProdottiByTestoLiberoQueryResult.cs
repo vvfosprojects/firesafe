@@ -1,4 +1,5 @@
 ﻿using DomainModel.Classes;
+using System;
 using System.Collections.Generic;
 
 namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
@@ -10,6 +11,8 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
         public RisultatiRicerca Risultati { get; set; }
 
         public Facet[] FacetCategorie { get; set; }
+
+        public FacetFirma[] FacetFirma { get; set; }
 
         public Prodotto[] Prodotti { get; set; }
     }

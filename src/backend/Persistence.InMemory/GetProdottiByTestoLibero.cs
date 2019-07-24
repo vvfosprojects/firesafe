@@ -1,6 +1,7 @@
 ﻿using DomainModel.Classes;
 using DomainModel.CQRS.Queries.GetProdottiByTestoLibero;
 using DomainModel.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,9 +9,9 @@ namespace Persistence.InMemory
 {
     internal class GetProdottiByTestoLibero : IGetProdottiByTestoLibero
     {
-        private readonly Database_hardcode database;
+        private readonly Database_hardcoded database;
 
-        public GetProdottiByTestoLibero(Database_hardcode database)
+        public GetProdottiByTestoLibero(Database_hardcoded database)
         {
             this.database = database;
         }
@@ -51,6 +52,15 @@ namespace Persistence.InMemory
                 })
                 .OrderByDescending(f => f.Count);
 
+            var prodottiPerFirma = prodottiCheMatchanoOrdinati
+                .GroupBy(pc => pc.p.Firma.Date)
+                .Select(pf => new FacetFirma()
+                {
+                    Firma = pf.Key,
+                    Count = pf.Count()
+                })
+                .OrderByDescending(z => z.Count);
+
             //aggiunto cast int
             return new GetProdottiByTestoLiberoQueryResult()
             {
@@ -62,6 +72,7 @@ namespace Persistence.InMemory
                     Page = query.Page
                 },
                 FacetCategorie = prodottiPerCategoria.ToArray(),
+                FacetFirma = prodottiPerFirma.ToArray(),
                 Prodotti = paginaProdotti
                   .Select(pp => pp.p)
                   .ToArray(),
