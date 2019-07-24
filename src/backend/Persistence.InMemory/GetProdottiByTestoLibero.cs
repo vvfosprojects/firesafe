@@ -52,14 +52,14 @@ namespace Persistence.InMemory
                 })
                 .OrderByDescending(f => f.Count);
 
-            var prodottiPerFirma = prodottiCheMatchanoOrdinati
-                .GroupBy(pc => pc.p.Firma.Date)
-                .Select(pf => new FacetFirma()
+            var prodottiPerAnnoFirmaConvenzione = prodottiCheMatchanoOrdinati
+                .GroupBy(pc => pc.p.Firma.Year)
+                .Select(pf => new FacetAnnoFirmaConvenzione()
                 {
-                    Firma = pf.Key,
+                    Anno = pf.Key,
                     Count = pf.Count()
                 })
-                .OrderByDescending(z => z.Count);
+                .OrderByDescending(z => z.Anno);
 
             //aggiunto cast int
             return new GetProdottiByTestoLiberoQueryResult()
@@ -72,7 +72,7 @@ namespace Persistence.InMemory
                     Page = query.Page
                 },
                 FacetCategorie = prodottiPerCategoria.ToArray(),
-                FacetFirma = prodottiPerFirma.ToArray(),
+                FacetAnnoFirmaConvenzione = prodottiPerAnnoFirmaConvenzione.ToArray(),
                 Prodotti = paginaProdotti
                   .Select(pp => pp.p)
                   .ToArray(),

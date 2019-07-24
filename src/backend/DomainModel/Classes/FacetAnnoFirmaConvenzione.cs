@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DomainModel.Classes
 {
-    public class FacetFirma
+    public class FacetAnnoFirmaConvenzione
     {
-        public DateTime Firma { get; set; }
+        public int Anno { get; set; }
 
         public int Count { get; set; }
     }

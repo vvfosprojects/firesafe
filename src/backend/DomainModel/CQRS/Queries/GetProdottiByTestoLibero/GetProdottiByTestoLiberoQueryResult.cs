@@ -12,7 +12,7 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
 
         public Facet[] FacetCategorie { get; set; }
 
-        public FacetFirma[] FacetFirma { get; set; }
+        public FacetAnnoFirmaConvenzione[] FacetAnnoFirmaConvenzione { get; set; }
 
         public Prodotto[] Prodotti { get; set; }
     }

@@ -22,6 +22,7 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
             {
                 Criteri = this.getProdottiByTestoLibero.Get(query).Criteri,
                 FacetCategorie = this.getProdottiByTestoLibero.Get(query).FacetCategorie,
+                FacetAnnoFirmaConvenzione = this.getProdottiByTestoLibero.Get(query).FacetAnnoFirmaConvenzione,
                 Prodotti = this.getProdottiByTestoLibero.Get(query).Prodotti,
                 Risultati = this.getProdottiByTestoLibero.Get(query).Risultati
             };
