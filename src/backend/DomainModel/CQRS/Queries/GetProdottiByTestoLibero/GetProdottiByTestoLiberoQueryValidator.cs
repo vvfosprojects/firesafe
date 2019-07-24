@@ -22,6 +22,15 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
                 yield return new ValidationResult("Errore, chiave in input troppo lunga");
             }
 
+            string[] keys = query.Key.Split(' ');
+            foreach (string key in keys)
+            {
+                if (key.Length < 2)
+                {
+                    yield return new ValidationResult("Errore, ogni chiave di input deve avere almeno 2 caratteri");
+                }
+            }
+
             foreach (string categoria in query.Categorie)
             {
                 if (categoria.Length > 100)
