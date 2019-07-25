@@ -91,7 +91,7 @@ namespace Persistence.InMemory
                     Totale = prodotti.Count(),
                     Filtrati = prodottiCheMatchanoOrdinati.Count(),
                     FirstIndex = (query.Page - 1) * query.PageSize,
-                    LastIndex = ((query.Page - 1) * query.PageSize) + query.PageSize
+                    LastIndex = ((query.Page - 1) * query.PageSize) + query.PageSize - 1
                 }
             };
         }
