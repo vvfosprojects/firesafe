@@ -28,7 +28,7 @@ namespace Persistence.InMemory
 
             var prodottiCheMatchanoOrdinati = prodottiConPunteggio
                 .Where(p => p.score > 0)
-                .OrderByDescending(p => p.score);
+                .OrderByDescending(p => p.score).ThenByDescending(p => p.p.Prog);
 
             /*
              * La dimensione massima dell'array di Prodotti in risposta deve essere
