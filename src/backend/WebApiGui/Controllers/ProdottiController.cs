@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Firesafe.Controllers
 {
+    /// <summary>
+    ///   Controller per la ricerca full-text di prodotti. Consente anche filtraggio per categorie e
+    ///   restituisce, oltre ai risultati di ricerca, anche statistiche (per es. faceting).
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ProdottiController : ControllerBase
@@ -15,6 +19,12 @@ namespace Firesafe.Controllers
             this.handler = handler;
         }
 
+        /// <summary>
+        ///   Effettua la ricerca full-text di prodotti. Consente anche filtraggio per categorie e
+        ///   restituisce, oltre ai risultati di ricerca, anche statistiche (per es. faceting).
+        /// </summary>
+        /// <param name="criteri">I criteri di ricerca</param>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult<GetProdottiByTestoLiberoQueryResult> Get([FromQuery] CriteriRicerca criteri)
         {
