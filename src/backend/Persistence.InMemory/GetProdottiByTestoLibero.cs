@@ -20,7 +20,10 @@ namespace Persistence.InMemory
         {
             var prodotti = this.database.Prodotti;
 
-            var prodottiConPunteggio = prodotti.Select(p => new
+            var prodottiFiltratiPerCategoria = prodotti
+                .Where(p => !query.Categorie.Any() || query.Categorie.Contains(p.MacroGruppo));
+
+            var prodottiConPunteggio = prodottiFiltratiPerCategoria.Select(p => new
             {
                 p = p,
                 score = p.ScoreByMultipleSearchKey(query.Key)
