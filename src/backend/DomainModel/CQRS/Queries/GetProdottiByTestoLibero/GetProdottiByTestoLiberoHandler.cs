@@ -18,6 +18,15 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
 
         public GetProdottiByTestoLiberoQueryResult Handle(GetProdottiByTestoLiberoQuery query)
         {
+            /*
+             * La dimensione massima dell'array di Prodotti in risposta deve essere
+             * minore o uguale a 20.
+            */
+            if (query.PageSize > 20)
+            {
+                query.PageSize = 20;
+            }
+
             return new GetProdottiByTestoLiberoQueryResult()
             {
                 Criteri = this.getProdottiByTestoLibero.Get(query).Criteri,
