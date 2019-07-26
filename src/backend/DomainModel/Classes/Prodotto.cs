@@ -96,8 +96,21 @@ namespace DomainModel.Classes
                 //se la Key è uguale alla DenominazioneCommerciale allora lo score ha peso +2
                 if (toLower == DenominazioneCommerciale.ToLower())
                 {
-                    score += 2;
+                    score += 5;
                 }
+
+                //se la Key è uguale alla Ditta allora lo score ha peso +3
+                if (toLower == this.Ditta.ToLower())
+                {
+                    score += 3;
+                }
+
+                //se la Key è contenuta nella Ditta allora lo score ha peso +1
+                if (this.Ditta.ToLower().Contains(toLower))
+                {
+                    score += 1;
+                }
+
                 //se la Key è contenuta nella DenominazioneCommerciale allora lo score ha peso +1
                 if (DenominazioneCommerciale.ToLower().Contains(toLower))
                 {
