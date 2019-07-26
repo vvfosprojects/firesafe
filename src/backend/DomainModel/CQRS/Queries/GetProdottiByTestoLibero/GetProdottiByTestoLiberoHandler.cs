@@ -27,6 +27,12 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
                 query.PageSize = 20;
             }
 
+            // La pagina deve essere almeno pari ad 1
+            if (query.Page < 1)
+            {
+                query.Page = 1;
+            }
+
             return new GetProdottiByTestoLiberoQueryResult()
             {
                 Criteri = this.getProdottiByTestoLibero.Get(query).Criteri,
