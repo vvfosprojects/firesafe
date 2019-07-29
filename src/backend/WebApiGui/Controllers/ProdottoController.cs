@@ -1,6 +1,7 @@
 ﻿using CQRS.Queries;
 using DomainModel.CQRS.Queries.GetProdottoPerCodice;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace RockApi.Controllers
 {
@@ -16,6 +17,11 @@ namespace RockApi.Controllers
         }
 
         //GET: api/Prodotti/5
+        /// <summary>
+        ///   Ritorna il singolo prodotto, ricercato per codice, se presente.
+        /// </summary>
+        /// <param name="id">Rappresenta il codice di un prodotto da ricercare</param>
+        /// <returns></returns>
         [HttpGet("{id}", Name = "Get")]
         public ActionResult<GetProdottoPerCodiceQueryResult> Get(string id)
         {

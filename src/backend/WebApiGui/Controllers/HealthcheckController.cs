@@ -12,6 +12,10 @@ namespace Firesafe.Controllers
     public class HealthcheckController : ControllerBase
     {
         // GET: api/Healthcheck
+        /// <summary>
+        ///   Verifica che tutti i componenti dell'applicazone sia correttamente inizializzati
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public object Get()
         {

@@ -17,6 +17,11 @@ namespace Persistence.InMemory
             this.database = database;
         }
 
+        /// <summary>
+        ///   Ritorna il singolo prodotto, ricercato per codice, se presente.
+        /// </summary>
+        /// <param name="codice">Rappresenta il codice di un prodotto da ricercare</param>
+        /// <returns></returns>
         public Prodotto Get(string codice)
         {
             return this.database.Prodotti.Single(p => p.Prog == codice);

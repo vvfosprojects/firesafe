@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Firesafe</name>
+    </assembly>
+    <members>
+        <member name="M:Firesafe.Controllers.ProdottiController.Get(DomainModel.CQRS.Queries.GetProdottiByTestoLibero.CriteriRicerca)">
+            <summary>
+              Effettua la ricerca full-text di prodotti. Consente anche filtraggio per categorie e
+              restituisce, oltre ai risultati di ricerca, anche statistiche (per es. faceting).
+            </summary>
+            <param name="criteri">I criteri di ricerca</param>
+            <returns></returns>
+        </member>
+        <member name="M:RockApi.Controllers.ProdottoController.Get(System.String)">
+            <summary>
+              Ritorna il singolo prodotto, ricercato per codice, se presente.
+            </summary>
+            <param name="id">Rappresenta il codice di un prodotto da ricercare</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

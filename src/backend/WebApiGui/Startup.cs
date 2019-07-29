@@ -11,6 +11,7 @@ using Microsoft.OpenApi.Models;
 using SimpleInjector;
 using SimpleInjector.Integration.AspNetCore.Mvc;
 using SimpleInjector.Lifestyles;
+using System.IO;
 
 namespace RockApi
 {
@@ -31,9 +32,12 @@ namespace RockApi
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(swagger =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Firesafe backend", Version = "v1" });
+                swagger.SwaggerDoc("v1", new OpenApiInfo { Title = "Firesafe backend", Version = "v1" });
+                var filePath = Path.Combine(System.AppContext.BaseDirectory, "Firesafe.xml");
+
+                swagger.IncludeXmlComments(filePath);
             });
 
             IntegrateSimpleInjector(services);
