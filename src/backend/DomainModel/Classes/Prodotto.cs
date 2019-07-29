@@ -86,6 +86,15 @@ namespace DomainModel.Classes
 
         public int ScoreByMultipleSearchKey(string key)
         {
+            //se la stringa in input è vuota o contiene spazi posso ritornare il valore 1 poichè non effettuo
+            //nessuna ricerca (non ritorno 0 per via dell'implementazione del filtro sulle
+            //categorie di GetProdottiByTestoLibero)
+
+            if (String.IsNullOrWhiteSpace(key) == true)
+            {
+                return 1;
+            }
+
             string[] keys = key.Split(' ');
             int score = 0;
 

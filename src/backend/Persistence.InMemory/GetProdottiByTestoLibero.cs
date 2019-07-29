@@ -2,7 +2,6 @@
 using DomainModel.CQRS.Queries.GetProdottiByTestoLibero;
 using DomainModel.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Persistence.InMemory
@@ -20,8 +19,16 @@ namespace Persistence.InMemory
         {
             var prodotti = this.database.Prodotti;
 
+            //filtra tutti i prodotti per categorie se presenti
             var prodottiFiltratiPerCategoria = prodotti
                 .Where(p => !query.Categorie.Any() || query.Categorie.Contains(p.MacroGruppo));
+
+            //se prodottiFiltratiPerCategoria è vuoto (dunque non è stata immessa nessuna categoria in input)
+            //allora prodottiFiltratiPerCategoria conterrà tutti i prodotti del db
+            if (prodottiFiltratiPerCategoria.Any() == false)
+            {
+                prodottiFiltratiPerCategoria = prodotti;
+            }
 
             var prodottiConPunteggio = prodottiFiltratiPerCategoria.Select(p => new
             {
@@ -65,7 +72,6 @@ namespace Persistence.InMemory
                 })
                 .OrderByDescending(z => z.Anno);
 
-            //aggiunto cast int
             return new GetProdottiByTestoLiberoQueryResult()
             {
                 Criteri = new CriteriRicerca()

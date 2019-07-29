@@ -17,23 +17,14 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
         /// <returns></returns>
         public IEnumerable<ValidationResult> Validate(GetProdottiByTestoLiberoQuery query)
         {
-            if (query.Key.Length > 100)
+            if (!String.IsNullOrWhiteSpace(query.Key) && query.Key.Length > 100)
             {
                 yield return new ValidationResult("Errore, chiave in input troppo lunga");
             }
 
-            string[] keys = query.Key.Split(' ');
-            foreach (string key in keys)
-            {
-                if (key.Length < 2)
-                {
-                    yield return new ValidationResult("Errore, ogni chiave di input deve avere almeno 2 caratteri");
-                }
-            }
-
             foreach (string categoria in query.Categorie)
             {
-                if (categoria.Length > 100)
+                if (categoria != null && categoria.Length > 100)
                 {
                     yield return new ValidationResult("Errore, categoria di input troppo lunga");
                 }
