@@ -15,36 +15,59 @@ namespace Persistence.InMemory
             this.database = database;
         }
 
+        /// <summary>
+        /// Ricerca full-text dei prodotti
+        /// </summary>
+        /// <param name="query">DTO di input</param>
+        /// <returns></returns>
         public GetProdottiByTestoLiberoQueryResult Get(GetProdottiByTestoLiberoQuery query)
         {
             var prodotti = this.database.Prodotti;
 
-            //filtra tutti i prodotti per categorie se presenti
+            //filtra tutti i prodotti per categorie, se presenti
             var prodottiFiltratiPerCategoria = prodotti
                 .Where(p => !query.Categorie.Any() || query.Categorie.Contains(p.MacroGruppo));
 
-            //se prodottiFiltratiPerCategoria è vuoto (dunque non è stata immessa nessuna categoria in input)
-            //allora prodottiFiltratiPerCategoria conterrà tutti i prodotti del db
+
+            /*
+             * se prodottiFiltratiPerCategoria è vuoto (dunque non è stata immessa nessuna categoria in input o non 
+             * sono state trovate occorrenze) allora prodottiFiltratiPerCategoria conterrà tutti i prodotti del db
+             */
             if (prodottiFiltratiPerCategoria.Any() == false)
             {
                 prodottiFiltratiPerCategoria = prodotti;
             }
 
+            /*
+             * viene costruito una classe anonima che conterrà un Prodotto e uno score associato il quale indicherà 
+             * la pertinenza del prodotto rispetto alla/e parola/e chiave inserita/e
+             */
             var prodottiConPunteggio = prodottiFiltratiPerCategoria.Select(p => new
             {
                 p = p,
                 score = p.ScoreByMultipleSearchKey(query.Key)
             });
 
+            /*
+             * viene costruito un array prodottiCheMatchanoOrdinati il quale è composto da tutti i prodotti in
+             * prodottiConPunteggio che hanno uno score > 1 (quindi c'è stato un match almeno parziale con la key)
+             * e successivamente l'array viene ordinato per Progressivo
+             */
             var prodottiCheMatchanoOrdinati = prodottiConPunteggio
                 .Where(p => p.score > 0)
                 .OrderByDescending(p => p.score)
                 .ThenByDescending(p => p.p.Prog);
 
+            /*
+             * Viene creata la paginazione
+             */
             var paginaProdotti = prodottiCheMatchanoOrdinati
                 .Skip((query.Page - 1) * query.PageSize)
                 .Take(query.PageSize);
 
+            /*
+             * Costruzione della Facet categoria
+             */
             var prodottiPerCategoria = prodottiCheMatchanoOrdinati
                 .GroupBy(pp => pp.p.MacroGruppo)
                 .Select(g => new Facet()
@@ -54,6 +77,9 @@ namespace Persistence.InMemory
                 })
                 .OrderByDescending(f => f.Count);
 
+            /*
+             * Costruzione della Facet anno di firma 
+             */
             var prodottiPerAnnoFirmaConvenzione = prodottiCheMatchanoOrdinati
                 .GroupBy(pc => pc.p.Firma.Year)
                 .Select(pf => new FacetAnnoFirmaConvenzione()
@@ -63,6 +89,9 @@ namespace Persistence.InMemory
                 })
                 .OrderByDescending(z => z.Anno);
 
+            /*
+             * Costruzione della Facet anno di scadenza
+             */
             var prodottiPerAnnoScadenzaConvenzione = prodottiCheMatchanoOrdinati
                 .GroupBy(pc => pc.p.Scadenza.Year)
                 .Select(pf => new FacetAnnoScadenzaConvenzione()
@@ -72,6 +101,9 @@ namespace Persistence.InMemory
                 })
                 .OrderByDescending(z => z.Anno);
 
+            /*
+             * Costruzione del DTO di output
+             */
             return new GetProdottiByTestoLiberoQueryResult()
             {
                 Criteri = new CriteriRicerca()

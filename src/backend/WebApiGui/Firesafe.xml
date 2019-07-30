@@ -4,6 +4,12 @@
         <name>Firesafe</name>
     </assembly>
     <members>
+        <member name="M:Firesafe.Controllers.HealthcheckController.Get">
+            <summary>
+              Verifica che tutti i componenti dell'applicazone sia correttamente inizializzati
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Firesafe.Controllers.ProdottiController.Get(DomainModel.CQRS.Queries.GetProdottiByTestoLibero.CriteriRicerca)">
             <summary>
               Effettua la ricerca full-text di prodotti. Consente anche filtraggio per categorie e

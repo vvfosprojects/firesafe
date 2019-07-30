@@ -9,9 +9,8 @@ namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
     public class GetProdottiByTestoLiberoQueryValidator : IQueryValidator<GetProdottiByTestoLiberoQuery, GetProdottiByTestoLiberoQueryResult>
     {
         /// <summary>
-        ///   Il metodo Validate verifica 3 condizioni: che la proprietà query.Key non sia più lunga
-        ///   di 100 caratteri; che la proprietà query.PageSize non sia maggiore di 20 (se superiore
-        ///   viene imposta a 20); che la proprietà query.Categorie[i] non sia più lunga di 100 caratteri;
+        ///   Il metodo Validate verifica 2 condizioni: che la proprietà query.Key non sia più lunga
+        ///   di 100 caratteri; che la proprietà query.Categorie[i] non sia più lunga di 100 caratteri;
         /// </summary>
         /// <param name="query">DTO di input</param>
         /// <returns></returns>
