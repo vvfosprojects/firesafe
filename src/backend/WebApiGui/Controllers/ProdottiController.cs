@@ -1,5 +1,7 @@
 ﻿using CQRS.Queries;
+using DomainModel.Classes;
 using DomainModel.CQRS.Queries.GetProdottiByTestoLibero;
+using DomainModel.CQRS.Queries.GetProdottiByTestoLiberoPerCategoriaENome;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Firesafe.Controllers

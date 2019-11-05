@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore;
+﻿using Firesafe;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace RockApi
+namespace Firesafe
 {
     public class Program
     {

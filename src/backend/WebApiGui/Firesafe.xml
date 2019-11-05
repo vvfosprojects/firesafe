@@ -10,7 +10,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Firesafe.Controllers.ProdottiController.Get(DomainModel.CQRS.Queries.GetProdottiByTestoLibero.CriteriRicerca)">
+        <member name="M:Firesafe.Controllers.ProdottiController.Get(DomainModel.Classes.CriteriRicerca)">
             <summary>
               Effettua la ricerca full-text di prodotti. Consente anche filtraggio per categorie e
               restituisce, oltre ai risultati di ricerca, anche statistiche (per es. faceting).
