@@ -1,4 +1,4 @@
-﻿namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
+﻿namespace DomainModel.Classes
 {
     public class CriteriRicerca
     {
@@ -22,5 +22,9 @@
         ///   questo filtro non ha alcun effetto.
         /// </summary>
         public string[] Categorie { get; set; }
+
+        public int?[] AnnoFirmaConvenzione { get; set; }
+        
+        public int?[] AnnoScadenzaConvenzione { get; set; }
     }
 }

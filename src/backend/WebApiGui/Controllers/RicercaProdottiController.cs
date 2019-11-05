@@ -15,5 +15,22 @@ namespace Firesafe.Controllers
         {
             this.handler = handler;
         }
+
+
+        [HttpGet]
+        public ActionResult<GetProdottiByTestoLiberoPerCategoriaENomeQueryResult> Get([FromQuery] CriteriRicerca criteri)
+        {
+            var query = new GetProdottiByTestoLiberoPerCategoriaENomeQuery()
+            {
+                Categorie = criteri.Categorie,
+                Page = criteri.Page,
+                PageSize = criteri.PageSize,
+                Key = criteri.Key,
+                AnnoFirmaConvenzione = criteri.AnnoFirmaConvenzione,
+                AnnoScadenzaConvenzione = criteri.AnnoScadenzaConvenzione
+            };
+
+            return Ok(this.handler.Handle(query));
+        }
     }
 }

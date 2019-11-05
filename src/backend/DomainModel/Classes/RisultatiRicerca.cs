@@ -1,4 +1,4 @@
-﻿namespace DomainModel.CQRS.Queries.GetProdottiByTestoLibero
+﻿namespace DomainModel.Classes
 {
     public class RisultatiRicerca
     {

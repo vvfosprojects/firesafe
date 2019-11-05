@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace DomainModel.Classes
 {
@@ -13,7 +14,7 @@ namespace DomainModel.Classes
         /// <summary>
         ///   Rappresenta l'id in MongoDB
         /// </summary>
-        public string Id { get; protected set; }
+        public string Id { get; set; }
 
         /// <summary>
         ///   Rappresenta l'id nel DB di DCPST
@@ -75,7 +76,7 @@ namespace DomainModel.Classes
             {
                 string toLower = k.ToLower();
 
-                //se la Key è uguale alla DenominazioneCommerciale allora lo score ha peso +2
+                //se la Key è uguale alla DenominazioneCommerciale allora lo score ha peso +5
                 if (toLower == DenominazioneCommerciale.ToLower())
                 {
                     score += 5;
@@ -108,6 +109,58 @@ namespace DomainModel.Classes
                 if (Impiego.ToLower().Contains(toLower) || MacroGruppo.ToLower().Contains(toLower))
                 {
                     score += 1;
+                }
+            }
+
+            return score;
+        }
+
+        public int ScoreByCategorySearchKey(string[] categories)
+        {
+            //se non passo nessuna categoria significa che tutti i prodotti "matchano" con essa
+            if (categories == null) return 0;
+
+            int score = 0;
+
+            foreach(string category in categories)
+            {
+                if (string.IsNullOrWhiteSpace(category)) return 0;
+                string toLower = category.ToLower();
+
+                //se la Key è uguale alla DenominazioneCommerciale allora lo score ha peso +5
+                if (toLower == MacroGruppo.ToLower())
+                {
+                    score += 1;
+                }
+            }
+            return score;
+        }
+
+
+        public int ScoreByNameSeachKey(string key)
+        {
+            //se la stringa è vuota
+            //if (String.IsNullOrWhiteSpace(key)) return 1;
+            if (String.IsNullOrWhiteSpace(key)) return 0;
+
+
+            string[] keys = key.Split(' ');
+
+
+            var score = 0;
+
+            foreach(string k in keys)
+            {
+                var chiave = k.ToLower();
+                if (string.IsNullOrEmpty(k)) break;
+                if (chiave == DenominazioneCommerciale.ToLower())
+                {
+                    score += 3;
+                }
+
+                if (DenominazioneCommerciale.ToLower().Contains(chiave))
+                {
+                    score += 2;
                 }
             }
 
