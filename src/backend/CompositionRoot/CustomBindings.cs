@@ -32,6 +32,8 @@ namespace CompositionRoot
 
             container.Register<DomainModel.Services.IGetProdottiByTestoLibero, Persistence.InMemory.GetProdottiByTestoLibero>();
 
+            container.Register<DomainModel.Services.IGetProdottiByTestoLiberoPerCategoriaENome, Persistence.InMemory.GetProdottiByTestoLiberoPerCategoriaENome>();
+
             container.Register<Persistence.InMemory.Database>(Lifestyle.Singleton);
         }
     }
